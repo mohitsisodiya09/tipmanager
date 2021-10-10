@@ -3,4 +3,4 @@ node_modules
 *.log
 *.gz
 .env
-public/user
+public/user/*

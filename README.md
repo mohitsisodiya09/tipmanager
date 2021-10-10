@@ -1,23 +1,33 @@
-# Basic Country Details
+# Tip Manager 
 
-Basic Country Details Application created using Node.js and Express.
+Tip Manager Application built in Node.js.
 
 ## Technology used
 
 - Node JS
 - Express
+- MongoDB
+- Mongoose
 
 ## Installation
 
-1. Clone the Project in your local machine using this URL: https://gitlab.com/mohitsisodiya09/machine_test_nodejs.git
+1. Clone the Project in your local machine by using this URL. 
+```
+https://gitlab.com/mohitsisodiya09/tipmanager.git
+```
 
-2. And install all Dependency by this command:
+2. And install all Dependency by this command.
 
 ```
 npm i or npm install
 ```
+3. Create .env file in root directory and add all values in variables.
 
-3. and when project setup is completed, then run the project in your local machine by using this command:
+```
+Please check .env.example before creating .env file
+```
+
+4. and when project setup is completed, then run the project in your local machine by using this command.
 
 ```
 nodemon or npm start
