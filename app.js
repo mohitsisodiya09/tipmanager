@@ -3,6 +3,7 @@ const express = require('express');
 const app = express();
 const bodyParser = require('body-parser');
 const cors = require("cors");
+const fs = require('fs');
 const log4js = require('log4js');
 const logger = log4js.getLogger('App');
 const PORT = process.env.PORT || 4500;
@@ -61,6 +62,30 @@ app.use('/tip', tip);
 app.get('/', function (req, res) {
 	logger.info(`App starting on port: ${PORT}`);
 	res.status(200).send({ status: true, statusCode: 200, message: `App starting on port: ${PORT}` });
+});
+
+/**
+ *  Description - Get Profile Pic by Passing Email ID
+ *  API Type - GET API
+ *  Parameters - required
+ *  Success message - 
+ *  Error message - 
+**/
+app.get('/public/user/:emailId', function (req, res) {
+
+	var emailId = req.params.emailId;
+	if (!emailId) {
+		logger.error("E-Mail ID is mandatory");
+		return res.status(400).send({ status: false, statusCode: 400, message: "E-Mail ID is mandatory" });
+	}
+
+	var filePath = __dirname + "/public/user/" + emailId + ".jpg";
+
+	fs.readFile(filePath, function (err, data) {
+		if (err) return res.status(400).send({ status: 400, statusCode: false, message: err.message, data: err });
+		return res.sendFile(filePath);
+	})
+
 });
 
 // Listen app on given port

@@ -4,7 +4,7 @@ const path = require("path");
 var uploadProfilePicture = multer({
     storage: multer.diskStorage({
         destination: function (req, file, cb) {
-            cb(null, 'public');
+            cb(null, 'public/user/');
         },
         filename: function (req, file, cb) {
             var extname = path.extname(file.originalname).toLowerCase();
