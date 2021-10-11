@@ -131,20 +131,19 @@ router.get("/", async function (req, res) {
     var startDate = req.query.startDate;
     var endDate = req.query.endDate;
 
-    // var formatStartDate = moment(startDate, 'DD-MM-YYYY HH:mm:ss').format(configs.format_config.DISPLAY_DATE_FORMAT);
-    // var formatEndDate = moment(endDate, 'DD-MM-YYYY HH:mm:ss').format(configs.format_config.DISPLAY_DATE_FORMAT);
+    var formatStartDate = moment(startDate, 'DD-MM-YYYY HH:mm:ss').format(configs.format_config.DATE_FORMAT);
+    var formatEndDate = moment(endDate, 'DD-MM-YYYY HH:mm:ss').format(configs.format_config.DATE_FORMAT);
 
-    // var findTips = await TipSchema.tipModel.find({
-    //     emailId: emailId,
-    //     CTS: {
-    //         $gte: formatStartDate,
-    //         $lt: formatEndDate
-    //     }
-    // }).exec();
-    // console.log(findTips.length)
+    var findTips = await TipSchema.tipModel.find({
+        emailId: emailId,
+        CTS: {
+            $gte: formatStartDate,
+            $lt: formatEndDate
+        }
+    }).exec();
 
-    var findParam = { emailId: emailId }
-    var findTips = await TipSchema.tipModel.find(findParam);
+    // var findParam = { emailId: emailId }
+    // var findTips = await TipSchema.tipModel.find(findParam);
     if (findTips.message == "User not found" || findTips.length == 0) {
         logger.error("Tips Not Found");
         return res.status(400).send({ status: false, statusCode: 400, message: "Tips Not Found" });
