@@ -33,12 +33,7 @@
 							"type": "file",
 							"src": "/home/i0059/Downloads/kids.jpg"
 						}
-					],
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
+					]
 				},
 				"url": {
 					"raw": "{{baseUrl}}/users/signup",
@@ -97,7 +92,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n    \"emailId\": \"mohitsisodiya76@gmail.com\",\n    \"placeName\": \"Hotel North Paradise\",\n    \"placeAddress\": \"Indore, M.P.\",\n    \"totalAmount\": 1500,\n    \"tipPercentage\": 5\n}",
+					"raw": "{\n    \"emailId\": \"mohitsisodiya76@gmail.com\",\n    \"placeName\": \"Hotel Paradise\",\n    \"placeAddress\": \"Indore, M.P.\",\n    \"totalAmount\": 2400,\n    \"tipPercentage\": 15\n}",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -161,7 +156,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "{{baseUrl}}/tip?analyticsType&startDate=01-10-2022&endDate=30-10-2022",
+					"raw": "{{baseUrl}}/tip?analyticsType&startDate=11-10-2021&endDate=12-10-2021",
 					"host": [
 						"{{baseUrl}}"
 					],
@@ -175,12 +170,41 @@
 						},
 						{
 							"key": "startDate",
-							"value": "01-10-2022"
+							"value": "11-10-2021"
 						},
 						{
 							"key": "endDate",
-							"value": "30-10-2022"
+							"value": "12-10-2021"
 						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Profile Picture",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2MzQwMjAxNDMsImVtYWlsSWQiOiJtb2hpdHNpc29kaXlhNzZAZ21haWwuY29tIiwicm9sZSI6IlVTRVIiLCJpYXQiOjE2MzM5MzM3NDN9.LgY5aVrfVQ3aCYiXezQWZEXyiqs3ezBYBZLWQ_x4W_M",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/public/user/mohitsisodiya76@gmail.com",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"public",
+						"user",
+						"mohitsisodiya76@gmail.com"
 					]
 				}
 			},
